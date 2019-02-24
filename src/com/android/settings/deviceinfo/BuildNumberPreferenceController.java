@@ -85,10 +85,10 @@ public class BuildNumberPreferenceController extends AbstractPreferenceControlle
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append(BidiFormatter.getInstance().unicodeWrap(Build.DISPLAY));
-                String pixelExperienceVersion = getPixelExperienceVersion();
-                if (!pixelExperienceVersion.equals("")){
+                String oneExperienceVersion = getOneExperienceVersion();
+                if (!oneExperienceVersion.equals("")){
                 sb.append("\n");
-                sb.append(pixelExperienceVersion);
+                sb.append(oneExperienceVersion);
                 }
                 preference.setSummary(sb.toString());
                 preference.setEnabled(true);
@@ -98,10 +98,10 @@ public class BuildNumberPreferenceController extends AbstractPreferenceControlle
         }
     }
 
-    private String getPixelExperienceVersion(){
-        String buildDate = SystemProperties.get("org.pixelexperience.build_date","");
-        String buildType = SystemProperties.get("org.pixelexperience.build_type","unofficial").toUpperCase();
-        return buildDate.equals("") ? "" : "PixelExperience-" + buildDate + "-" + buildType;
+    private String getOneExperienceVersion(){
+        String buildDate = SystemProperties.get("org.oneexperience.build_date","");
+        String buildType = SystemProperties.get("org.oneexperience.build_type","unofficial").toUpperCase();
+        return buildDate.equals("") ? "" : "OneExperience-" + buildDate + "-" + buildType;
     }
 
     @Override
